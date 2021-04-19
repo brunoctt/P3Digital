@@ -1,0 +1,35 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+ENTITY data2temp IS
+  PORT(
+		data   : in (15 DOWNTO 0);
+      clk    : IN  STD_LOGIC;  --system clock+
+      tempdec, tempuni, tempdez, tempcem  : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)); --data signals for lcd
+END data2temp;
+
+ARCHITECTURE behavior OF data2temp IS
+
+  SIGNAL dec, uni, dez, cem : integer range 0 to 9;
+  signal dataint	: integer range 0 to 1000;
+  
+BEGIN
+	process(clk)
+	begin	
+		dataint <= to_integer(unsigned(data(15 downto 7)));
+		dataint <= 10*datatint/2
+		cem <= dataint/1000;
+		dez <= (dataint/100) mod 10;
+		uni <= (dataint mod 100)/10;
+		dec <= dataint mod 10;
+--		if ((dataint mod 2 \= 0) then
+--			dec <= 5;
+--		else 
+--			dec <= 0;
+		tempdec <= std_logic_vector(to_unsigned(dec, 4));
+		tempuni <= std_logic_vector(to_unsigned(uni, 4));
+		tempdez <= std_logic_vector(to_unsigned(dez, 4));
+		tempcem <= std_logic_vector(to_unsigned(cem, 4));
+	end process;
+end;
