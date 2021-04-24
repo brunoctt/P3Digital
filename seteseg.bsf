@@ -62,15 +62,15 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 200 32)
 		(output)
-		(text "saida[0..6]" (rect 0 0 40 12)(font "Arial" ))
-		(text "saida[0..6]" (rect 139 27 179 39)(font "Arial" ))
+		(text "saida[0..7]" (rect 0 0 40 12)(font "Arial" ))
+		(text "saida[0..7]" (rect 139 27 179 39)(font "Arial" ))
 		(line (pt 200 32)(pt 184 32)(line_width 3))
 	)
 	(port
 		(pt 200 48)
 		(output)
-		(text "dig[3..0]" (rect 0 0 30 12)(font "Arial" ))
-		(text "dig[3..0]" (rect 149 43 179 55)(font "Arial" ))
+		(text "dig[0..3]" (rect 0 0 30 12)(font "Arial" ))
+		(text "dig[0..3]" (rect 149 43 179 55)(font "Arial" ))
 		(line (pt 200 48)(pt 184 48)(line_width 3))
 	)
 	(drawing

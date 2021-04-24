@@ -4,55 +4,63 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "rs",
+					"name" : "scl",
 					"strict" : false
 				},
 				{
-					"name" : "e",
+					"name" : "7seg[0]",
 					"strict" : false
 				},
 				{
-					"name" : "lcd_data[7]",
+					"name" : "7seg[1]",
 					"strict" : false
 				},
 				{
-					"name" : "lcd_data[6]",
+					"name" : "7seg[2]",
 					"strict" : false
 				},
 				{
-					"name" : "lcd_data[5]",
+					"name" : "7seg[3]",
 					"strict" : false
 				},
 				{
-					"name" : "lcd_data[4]",
+					"name" : "7seg[4]",
 					"strict" : false
 				},
 				{
-					"name" : "lcd_data[3]",
+					"name" : "7seg[5]",
 					"strict" : false
 				},
 				{
-					"name" : "lcd_data[2]",
+					"name" : "7seg[6]",
 					"strict" : false
 				},
 				{
-					"name" : "lcd_data[1]",
+					"name" : "7seg[7]",
 					"strict" : false
 				},
 				{
-					"name" : "lcd_data[0]",
+					"name" : "digs[0]",
+					"strict" : false
+				},
+				{
+					"name" : "digs[1]",
+					"strict" : false
+				},
+				{
+					"name" : "digs[2]",
+					"strict" : false
+				},
+				{
+					"name" : "digs[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sda",
 					"strict" : false
 				},
 				{
 					"name" : "clock",
-					"strict" : false
-				},
-				{
-					"name" : "s1",
-					"strict" : false
-				},
-				{
-					"name" : "s2",
 					"strict" : false
 				}
 			]
