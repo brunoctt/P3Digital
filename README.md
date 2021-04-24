@@ -8,6 +8,7 @@
   
 #Links
  - https://www.digikey.com/eewiki/pages/viewpage.action?pageId=4096079
+ - https://www.cin.ufpe.br/~voo/sd/Aula6
   
 ![image](https://user-images.githubusercontent.com/65169791/114924311-39b2a980-9e04-11eb-8094-f7d179a0feb9.png)
 ![image](https://user-images.githubusercontent.com/65169791/113338956-34336a80-9300-11eb-8fa4-fa5902850ed3.png)
