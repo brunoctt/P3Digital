@@ -1,0 +1,27 @@
+module convtemp
+(
+input [15:0] data,
+input clk,
+output reg [3:0] tempdec,
+output reg [3:0] tempuni,
+output reg [3:0] tempdez,
+output reg [3:0] tempcem
+);
+reg [3:0] dec;
+reg [3:0] uni;
+reg [3:0] dez;
+reg [3:0] cem;
+integer convert;
+
+always @ (posedge clk)
+
+begin
+convert <= data[14:8];
+
+else
+
+result <= dataa - datab;
+
+end
+
+endmodule

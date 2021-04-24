@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Apr 24 11:48:15 2021
+Analysis & Synthesis Status : Successful - Sat Apr 24 18:50:31 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : Projeto3
 Top-level Entity Name : teste
 Family : Cyclone IV E
-Total logic elements : 333
-    Total combinational functions : 333
-    Dedicated logic registers : 78
-Total registers : 78
-Total pins : 15
+Total logic elements : 508
+    Total combinational functions : 499
+    Dedicated logic registers : 156
+Total registers : 156
+Total pins : 28
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

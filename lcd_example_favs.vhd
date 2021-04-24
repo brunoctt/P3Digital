@@ -29,7 +29,7 @@ USE ieee.std_logic_1164.all;
 ENTITY lcd_example_favs IS
   PORT(
       clk   : IN  STD_LOGIC;  --system clock+
-		menu	: in std_logic_vector (1 downto 0);
+		menu	: in std_logic_vector (0 to 1);
       rw, rs, e : OUT STD_LOGIC;  --read/write, setup/data, and enable for lcd
       lcd_data  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)); --data signals for lcd
 END lcd_example_favs;
