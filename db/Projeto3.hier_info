@@ -1,13 +1,13 @@
 |teste
 scl <= I2C_READ:inst.scl
 clock => I2C_READ:inst.clk
-clock => lcd_example_favs:inst5.clk
+clock => lcd_example_favs:inst1.clk
 clock => convtemp:inst4.clk
 clock => seteseg:inst3.clock
 sda <> I2C_READ:inst.sda
-rw <= lcd_example_favs:inst5.rw
-rs <= lcd_example_favs:inst5.rs
-e <= lcd_example_favs:inst5.e
+rw <= lcd_example_favs:inst1.rw
+rs <= lcd_example_favs:inst1.rs
+e <= lcd_example_favs:inst1.e
 7seg[7] <= seteseg:inst3.saida[7]
 7seg[6] <= seteseg:inst3.saida[6]
 7seg[5] <= seteseg:inst3.saida[5]
@@ -20,14 +20,14 @@ digs[3] <= seteseg:inst3.dig[3]
 digs[2] <= seteseg:inst3.dig[2]
 digs[1] <= seteseg:inst3.dig[1]
 digs[0] <= seteseg:inst3.dig[0]
-lcd_data[0] <= lcd_example_favs:inst5.lcd_data[0]
-lcd_data[1] <= lcd_example_favs:inst5.lcd_data[1]
-lcd_data[2] <= lcd_example_favs:inst5.lcd_data[2]
-lcd_data[3] <= lcd_example_favs:inst5.lcd_data[3]
-lcd_data[4] <= lcd_example_favs:inst5.lcd_data[4]
-lcd_data[5] <= lcd_example_favs:inst5.lcd_data[5]
-lcd_data[6] <= lcd_example_favs:inst5.lcd_data[6]
-lcd_data[7] <= lcd_example_favs:inst5.lcd_data[7]
+lcd_data[0] <= lcd_example_favs:inst1.lcd_data[0]
+lcd_data[1] <= lcd_example_favs:inst1.lcd_data[1]
+lcd_data[2] <= lcd_example_favs:inst1.lcd_data[2]
+lcd_data[3] <= lcd_example_favs:inst1.lcd_data[3]
+lcd_data[4] <= lcd_example_favs:inst1.lcd_data[4]
+lcd_data[5] <= lcd_example_favs:inst1.lcd_data[5]
+lcd_data[6] <= lcd_example_favs:inst1.lcd_data[6]
+lcd_data[7] <= lcd_example_favs:inst1.lcd_data[7]
 led[0] <= sel[0].DB_MAX_OUTPUT_PORT_TYPE
 led[1] <= sel[1].DB_MAX_OUTPUT_PORT_TYPE
 
@@ -187,7 +187,7 @@ data[14] <= data_r[14].DB_MAX_OUTPUT_PORT_TYPE
 data[15] <= data_r[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|teste|lcd_example_favs:inst5
+|teste|lcd_example_favs:inst1
 clk => lcd_controller_v2_1:dut.clk
 clk => lcd_bus[0].CLK
 clk => lcd_bus[1].CLK
@@ -206,12 +206,28 @@ clk => char[2].CLK
 clk => char[3].CLK
 clk => char[4].CLK
 clk => char[5].CLK
-menu[1] => Equal0.IN0
-menu[1] => Equal1.IN1
-menu[1] => Equal2.IN1
 menu[0] => Equal0.IN1
-menu[0] => Equal1.IN0
+menu[0] => Equal1.IN1
 menu[0] => Equal2.IN0
+menu[1] => Equal0.IN0
+menu[1] => Equal1.IN0
+menu[1] => Equal2.IN1
+contador1[0] => Mux9.IN66
+contador1[1] => Mux8.IN66
+contador1[2] => Mux7.IN66
+contador1[3] => Mux6.IN66
+contador2[0] => Mux9.IN67
+contador2[1] => Mux8.IN67
+contador2[2] => Mux7.IN67
+contador2[3] => Mux6.IN67
+contador3[0] => Mux9.IN68
+contador3[1] => Mux8.IN68
+contador3[2] => Mux7.IN68
+contador3[3] => Mux6.IN68
+contador4[0] => Mux9.IN69
+contador4[1] => Mux8.IN69
+contador4[2] => Mux7.IN69
+contador4[3] => Mux6.IN69
 rw <= lcd_controller_v2_1:dut.rw
 rs <= lcd_controller_v2_1:dut.rs
 e <= lcd_controller_v2_1:dut.e
@@ -225,7 +241,7 @@ lcd_data[6] <= lcd_controller_v2_1:dut.lcd_data[6]
 lcd_data[7] <= lcd_controller_v2_1:dut.lcd_data[7]
 
 
-|teste|lcd_example_favs:inst5|lcd_controller_v2_1:dut
+|teste|lcd_example_favs:inst1|lcd_controller_v2_1:dut
 clk => e~reg0.CLK
 clk => lcd_data[0]~reg0.CLK
 clk => lcd_data[1]~reg0.CLK

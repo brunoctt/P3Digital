@@ -1,5 +1,5 @@
 
-State Machine - |teste|lcd_example_favs:inst5|lcd_controller_v2_1:dut|state
+State Machine - |teste|lcd_example_favs:inst1|lcd_controller_v2_1:dut|state
 Name state.send state.ready state.initialize state.power_up 
 state.power_up 0 0 0 0 
 state.initialize 0 0 1 1 

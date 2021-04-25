@@ -29,7 +29,8 @@ USE ieee.std_logic_1164.all;
 ENTITY lcd_example_favs IS
   PORT(
       clk   : IN  STD_LOGIC;  --system clock+
-		menu	: in std_logic_vector (0 to 1);
+		menu	: in std_logic_vector (1 downto 0);
+		contador1, contador2, contador3, contador4: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       rw, rs, e : OUT STD_LOGIC;  --read/write, setup/data, and enable for lcd
       lcd_data  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)); --data signals for lcd
 END lcd_example_favs;
@@ -60,10 +61,10 @@ BEGIN
     VARIABLE char  :  INTEGER RANGE 0 TO 32 := 0;
 	BEGIN
 	------------------------------- concatenando vetores do contador para ficar no formato de dados do display	
---		aux1 <= "100011"&contador1;
---		aux2 <= "100011"&contador2;
---		aux3 <= "100011"&contador3;
---		aux4 <= "100011"&contador4;
+		aux1 <= "100011"&contador1;
+		aux2 <= "100011"&contador2;
+		aux3 <= "100011"&contador3;
+		aux4 <= "100011"&contador4;
 --		aux5 <= "100011"&contador5;
 --		aux6 <= "100011"&contador6;
 
@@ -127,6 +128,14 @@ BEGIN
 								elsif menu = "01" then
 										lcd_bus <= "1000100000"; --ESPAÇO
 								end if;
+					when 16 => lcd_bus <= "0011000000"; --QUEBRA DE LINHA
+					WHEN 17 => lcd_bus <= aux1;	-- Centena
+					WHEN 18 => lcd_bus <= aux2;	-- Dezena
+					WHEN 19 => lcd_bus <= aux3;	-- Unidade
+					WHEN 20 => lcd_bus <= "1000101110";	--.
+					WHEN 21 => lcd_bus <= aux4;	-- Decimal
+					WHEN 22 => lcd_bus <= "1011011111";  --o
+					WHEN 23 => lcd_bus <= "1001000011";  --C
 					WHEN OTHERS => lcd_bus <= "0010000000";
 										 char:= 0;		  					
 				END CASE;

@@ -1,5 +1,5 @@
 Flow report for Projeto3
-Sat Apr 24 18:50:42 2021
+Sun Apr 25 16:15:40 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,22 +41,22 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Apr 24 18:50:39 2021       ;
+; Flow Status                        ; Flow Failed - Sun Apr 25 16:15:40 2021      ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Projeto3                                    ;
-; Top-level Entity Name              ; teste                                       ;
+; Top-level Entity Name              ; buzzer                                      ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE6E22C8                                 ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 505 / 6,272 ( 8 % )                         ;
-;     Total combinational functions  ; 499 / 6,272 ( 8 % )                         ;
-;     Dedicated logic registers      ; 156 / 6,272 ( 2 % )                         ;
-; Total registers                    ; 156                                         ;
-; Total pins                         ; 28 / 92 ( 30 % )                            ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0 / 276,480 ( 0 % )                         ;
-; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                              ;
-; Total PLLs                         ; 0 / 2 ( 0 % )                               ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/24/2021 18:50:20 ;
+; Start date & time ; 04/25/2021 16:15:32 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Projeto3            ;
 +-------------------+---------------------+
@@ -76,51 +76,42 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 88230082277152.161930102016740         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 88230082277152.161937813211812         ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; teste       ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; teste       ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; teste       ; Top        ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; buzzer      ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; buzzer      ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; buzzer      ; Top        ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
-; TOP_LEVEL_ENTITY                    ; teste                                  ; Projeto3      ; --          ; --         ;
+; TOP_LEVEL_ENTITY                    ; buzzer                                 ; Projeto3      ; --          ; --         ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                        ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4834 MB             ; 00:00:20                           ;
-; Fitter               ; 00:00:05     ; 1.0                     ; 5511 MB             ; 00:00:06                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4685 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:01     ; 1.0                     ; 4765 MB             ; 00:00:02                           ;
-; Total                ; 00:00:18     ; --                      ; --                  ; 00:00:29                           ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                          ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Elaboration ; 00:00:09     ; 1.0                     ; 4783 MB             ; 00:00:18                           ;
+; Total                  ; 00:00:09     ; --                      ; --                  ; 00:00:18                           ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                    ;
-+----------------------+------------------+------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-UH433K8  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-UH433K8  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-UH433K8  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-UH433K8  ; Windows 10 ; 10.0       ; x86_64         ;
-+----------------------+------------------+------------+------------+----------------+
++--------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                      ;
++------------------------+------------------+------------+------------+----------------+
+; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++------------------------+------------------+------------+------------+----------------+
+; Analysis & Elaboration ; DESKTOP-UH433K8  ; Windows 10 ; 10.0       ; x86_64         ;
++------------------------+------------------+------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
-quartus_map --read_settings_files=on --write_settings_files=off Projeto3 -c Projeto3
-quartus_fit --read_settings_files=off --write_settings_files=off Projeto3 -c Projeto3
-quartus_asm --read_settings_files=off --write_settings_files=off Projeto3 -c Projeto3
-quartus_sta Projeto3 -c Projeto3
+quartus_map --read_settings_files=on --write_settings_files=off Projeto3 -c Projeto3 --analysis_and_elaboration
 
 
 
