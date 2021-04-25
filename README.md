@@ -1,7 +1,7 @@
 #Objetivos:
   - LCD e 7seg DONE
-  - Temperatura ambiente no 7 seg
-  - Falor se tá quarto frio normal ou quente no LCD
+  - Temperatura ambiente no 7 seg DONE
+  - Falor se tá quarto frio normal ou quente no LCD DONE
   - Caso saia do NORMAL para o FRIO, ativar buzzer segundo instruções
 
 #Dúvidas:
