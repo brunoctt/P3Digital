@@ -16,6 +16,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "buzzer",
+					"strict" : false
+				},
+				{
 					"name" : "7seg[0]",
 					"strict" : false
 				},
@@ -97,6 +101,10 @@
 				},
 				{
 					"name" : "led[1]",
+					"strict" : false
+				},
+				{
+					"name" : "led[0]",
 					"strict" : false
 				},
 				{

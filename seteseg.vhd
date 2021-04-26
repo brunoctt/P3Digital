@@ -18,7 +18,8 @@ begin
 	variable counter : integer range 0 to 50000;
 	begin
 		if clock'event and clock='1' then
-			if counter = 50000 then
+		------------------- contador para alternar os digitos do displays
+			if counter = 50000 then 
 				counter := 0;
 				if digito = 3 then
 					digito <= 0;
@@ -29,13 +30,14 @@ begin
 				counter := counter + 1;
 			end if;
 		end if;
+	------------------------------ a depender do contador, ativa um digito e atribui seu respectivo valor
 	case digito is
 		when 0 => dig <= "0111"; aux <= tempdec;
 		when 1 => dig <= "1011"; aux <= tempuni;
 		when 2 => dig <= "1101"; aux <= tempdez;
 		when 3 => dig <= "1110"; aux <= tempcem;
 	end CASE;
-	if digito = 1 then
+	if digito = 1 then ---- para o digito da unidade, deve haver um ponto, por causa do decimal que o segue
 		case aux is
 			when "0000" => saida <= "00000010";
 			when "0001" =>	saida	<=	"10011110";

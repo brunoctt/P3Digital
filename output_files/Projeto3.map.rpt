@@ -1,5 +1,5 @@
-Analysis & Elaboration report for Projeto3
-Sun Apr 25 16:15:40 2021
+Analysis & Synthesis report for Projeto3
+Mon Apr 26 16:59:19 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -7,10 +7,29 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |teste|lcd_example_favs:inst1|lcd_controller_v2_1:dut|state
+  9. State Machine - |teste|I2C_READ:inst|state
+ 10. State Machine - |teste|I2C_READ:inst|cnt
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: I2C_READ:inst
+ 17. Parameter Settings for Inferred Entity Instance: convtemp:inst4|lpm_divide:Div1
+ 18. Parameter Settings for Inferred Entity Instance: convtemp:inst4|lpm_divide:Mod0
+ 19. Parameter Settings for Inferred Entity Instance: convtemp:inst4|lpm_divide:Mod1
+ 20. Parameter Settings for Inferred Entity Instance: convtemp:inst4|lpm_divide:Div0
+ 21. Port Connectivity Checks: "lcd_example_favs:inst1|lcd_controller_v2_1:dut"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
 
 
 
@@ -35,48 +54,32 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                                   ;
+; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Failed - Sun Apr 25 16:15:40 2021           ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 26 16:59:19 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Projeto3                                    ;
-; Top-level Entity Name              ; buzzer                                      ;
+; Top-level Entity Name              ; teste                                       ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 626                                         ;
+;     Total combinational functions  ; 617                                         ;
+;     Dedicated logic registers      ; 215                                         ;
+; Total registers                    ; 215                                         ;
+; Total pins                         ; 29                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
-
-
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
 
 
 +------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                            ;
+; Analysis & Synthesis Settings                                                                              ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE6E22C8        ;                    ;
-; Top-level entity name                                            ; buzzer             ; Projeto3           ;
+; Top-level entity name                                            ; teste              ; Projeto3           ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -156,14 +159,407 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                         ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------+---------+
+; seteseg.vhd                      ; yes             ; User VHDL File                     ; D:/Estudo/Eletronica_Digital/P3/seteseg.vhd                                ;         ;
+; lcd_example_favs.vhd             ; yes             ; User VHDL File                     ; D:/Estudo/Eletronica_Digital/P3/lcd_example_favs.vhd                       ;         ;
+; lcd_controller_v2_1.vhd          ; yes             ; User VHDL File                     ; D:/Estudo/Eletronica_Digital/P3/lcd_controller_v2_1.vhd                    ;         ;
+; I2C_READ.v                       ; yes             ; User Verilog HDL File              ; D:/Estudo/Eletronica_Digital/P3/I2C_READ.v                                 ;         ;
+; teste.bdf                        ; yes             ; User Block Diagram/Schematic File  ; D:/Estudo/Eletronica_Digital/P3/teste.bdf                                  ;         ;
+; convtemp.v                       ; yes             ; User Verilog HDL File              ; D:/Estudo/Eletronica_Digital/P3/convtemp.v                                 ;         ;
+; buzzquente.v                     ; yes             ; User Verilog HDL File              ; D:/Estudo/Eletronica_Digital/P3/buzzquente.v                               ;         ;
+; buzzfrio.v                       ; yes             ; User Verilog HDL File              ; D:/Estudo/Eletronica_Digital/P3/buzzfrio.v                                 ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                       ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc      ;         ;
+; db/lpm_divide_p0p.tdf            ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/lpm_divide_p0p.tdf                      ;         ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/abs_divider_kbg.tdf                     ;         ;
+; db/alt_u_div_77f.tdf             ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/alt_u_div_77f.tdf                       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/add_sub_7pc.tdf                         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/add_sub_8pc.tdf                         ;         ;
+; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/lpm_abs_2v9.tdf                         ;         ;
+; db/lpm_abs_i0a.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/lpm_abs_i0a.tdf                         ;         ;
+; db/lpm_divide_soo.tdf            ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/lpm_divide_soo.tdf                      ;         ;
+; db/lpm_divide_s0p.tdf            ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/lpm_divide_s0p.tdf                      ;         ;
+; db/abs_divider_nbg.tdf           ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/abs_divider_nbg.tdf                     ;         ;
+; db/alt_u_div_c7f.tdf             ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/alt_u_div_c7f.tdf                       ;         ;
+; db/lpm_abs_5v9.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/Estudo/Eletronica_Digital/P3/db/lpm_abs_5v9.tdf                         ;         ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 626         ;
+;                                             ;             ;
+; Total combinational functions               ; 617         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 234         ;
+;     -- 3 input functions                    ; 74          ;
+;     -- <=2 input functions                  ; 309         ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 429         ;
+;     -- arithmetic mode                      ; 188         ;
+;                                             ;             ;
+; Total registers                             ; 215         ;
+;     -- Dedicated logic registers            ; 215         ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 29          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 215         ;
+; Total fan-out                               ; 2309        ;
+; Average fan-out                             ; 2.59        ;
++---------------------------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                          ;
++------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                               ; Entity Name         ; Library Name ;
++------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |teste                                   ; 617 (1)             ; 215 (0)                   ; 0           ; 0            ; 0       ; 0         ; 29   ; 0            ; |teste                                                                                                            ; teste               ; work         ;
+;    |I2C_READ:inst|                       ; 118 (118)           ; 60 (60)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|I2C_READ:inst                                                                                              ; I2C_READ            ; work         ;
+;    |buzzfrio:inst15|                     ; 30 (30)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|buzzfrio:inst15                                                                                            ; buzzfrio            ; work         ;
+;    |buzzquente:inst16|                   ; 29 (29)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|buzzquente:inst16                                                                                          ; buzzquente          ; work         ;
+;    |convtemp:inst4|                      ; 131 (11)            ; 19 (19)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4                                                                                             ; convtemp            ; work         ;
+;       |lpm_divide:Div1|                  ; 53 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Div1                                                                             ; lpm_divide          ; work         ;
+;          |lpm_divide_p0p:auto_generated| ; 53 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Div1|lpm_divide_p0p:auto_generated                                               ; lpm_divide_p0p      ; work         ;
+;             |abs_divider_kbg:divider|    ; 53 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider                       ; abs_divider_kbg     ; work         ;
+;                |alt_u_div_77f:divider|   ; 53 (53)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|alt_u_div_77f:divider ; alt_u_div_77f       ; work         ;
+;       |lpm_divide:Mod0|                  ; 11 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Mod0                                                                             ; lpm_divide          ; work         ;
+;          |lpm_divide_soo:auto_generated| ; 11 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Mod0|lpm_divide_soo:auto_generated                                               ; lpm_divide_soo      ; work         ;
+;             |abs_divider_kbg:divider|    ; 11 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Mod0|lpm_divide_soo:auto_generated|abs_divider_kbg:divider                       ; abs_divider_kbg     ; work         ;
+;                |alt_u_div_77f:divider|   ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Mod0|lpm_divide_soo:auto_generated|abs_divider_kbg:divider|alt_u_div_77f:divider ; alt_u_div_77f       ; work         ;
+;       |lpm_divide:Mod1|                  ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Mod1                                                                             ; lpm_divide          ; work         ;
+;          |lpm_divide_soo:auto_generated| ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Mod1|lpm_divide_soo:auto_generated                                               ; lpm_divide_soo      ; work         ;
+;             |abs_divider_kbg:divider|    ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Mod1|lpm_divide_soo:auto_generated|abs_divider_kbg:divider                       ; abs_divider_kbg     ; work         ;
+;                |alt_u_div_77f:divider|   ; 56 (56)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|convtemp:inst4|lpm_divide:Mod1|lpm_divide_soo:auto_generated|abs_divider_kbg:divider|alt_u_div_77f:divider ; alt_u_div_77f       ; work         ;
+;    |lcd_example_favs:inst1|              ; 260 (77)            ; 62 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|lcd_example_favs:inst1                                                                                     ; lcd_example_favs    ; work         ;
+;       |lcd_controller_v2_1:dut|          ; 183 (183)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|lcd_example_favs:inst1|lcd_controller_v2_1:dut                                                             ; lcd_controller_v2_1 ; work         ;
+;    |seteseg:inst3|                       ; 48 (48)             ; 18 (18)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |teste|seteseg:inst3                                                                                              ; seteseg             ; work         ;
++------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------+
+; State Machine - |teste|lcd_example_favs:inst1|lcd_controller_v2_1:dut|state     ;
++------------------+------------+-------------+------------------+----------------+
+; Name             ; state.send ; state.ready ; state.initialize ; state.power_up ;
++------------------+------------+-------------+------------------+----------------+
+; state.power_up   ; 0          ; 0           ; 0                ; 0              ;
+; state.initialize ; 0          ; 0           ; 1                ; 1              ;
+; state.ready      ; 0          ; 1           ; 0                ; 1              ;
+; state.send       ; 1          ; 0           ; 0                ; 1              ;
++------------------+------------+-------------+------------------+----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |teste|I2C_READ:inst|state                                                                                               ;
++---------------+------------+------------+------------+-------------+------------+-------------+------------+---------------+-------------+
+; Name          ; state.IDLE ; state.STOP ; state.NACK ; state.READ2 ; state.ACK2 ; state.READ1 ; state.ACK1 ; state.ADDRESS ; state.START ;
++---------------+------------+------------+------------+-------------+------------+-------------+------------+---------------+-------------+
+; state.IDLE    ; 0          ; 0          ; 0          ; 0           ; 0          ; 0           ; 0          ; 0             ; 0           ;
+; state.START   ; 1          ; 0          ; 0          ; 0           ; 0          ; 0           ; 0          ; 0             ; 1           ;
+; state.ADDRESS ; 1          ; 0          ; 0          ; 0           ; 0          ; 0           ; 0          ; 1             ; 0           ;
+; state.ACK1    ; 1          ; 0          ; 0          ; 0           ; 0          ; 0           ; 1          ; 0             ; 0           ;
+; state.READ1   ; 1          ; 0          ; 0          ; 0           ; 0          ; 1           ; 0          ; 0             ; 0           ;
+; state.ACK2    ; 1          ; 0          ; 0          ; 0           ; 1          ; 0           ; 0          ; 0             ; 0           ;
+; state.READ2   ; 1          ; 0          ; 0          ; 1           ; 0          ; 0           ; 0          ; 0             ; 0           ;
+; state.NACK    ; 1          ; 0          ; 1          ; 0           ; 0          ; 0           ; 0          ; 0             ; 0           ;
+; state.STOP    ; 1          ; 1          ; 0          ; 0           ; 0          ; 0           ; 0          ; 0             ; 0           ;
++---------------+------------+------------+------------+-------------+------------+-------------+------------+---------------+-------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------+
+; State Machine - |teste|I2C_READ:inst|cnt                  ;
++---------+---------+---------+---------+---------+---------+
+; Name    ; cnt.000 ; cnt.011 ; cnt.010 ; cnt.001 ; cnt.101 ;
++---------+---------+---------+---------+---------+---------+
+; cnt.101 ; 0       ; 0       ; 0       ; 0       ; 0       ;
+; cnt.001 ; 0       ; 0       ; 0       ; 1       ; 1       ;
+; cnt.010 ; 0       ; 0       ; 1       ; 0       ; 1       ;
+; cnt.011 ; 0       ; 1       ; 0       ; 0       ; 1       ;
+; cnt.000 ; 1       ; 0       ; 0       ; 0       ; 1       ;
++---------+---------+---------+---------+---------+---------+
+
+
++--------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                         ;
++---------------------------------------------------+----------------------------------------+
+; Register name                                     ; Reason for Removal                     ;
++---------------------------------------------------+----------------------------------------+
+; convtemp:inst4|dec[1,3]                           ; Stuck at GND due to stuck port data_in ;
+; convtemp:inst4|convert[7..31]                     ; Stuck at GND due to stuck port data_in ;
+; I2C_READ:inst|address_reg[7]                      ; Stuck at VCC due to stuck port data_in ;
+; I2C_READ:inst|address_reg[5,6]                    ; Stuck at GND due to stuck port data_in ;
+; I2C_READ:inst|address_reg[4]                      ; Stuck at VCC due to stuck port data_in ;
+; I2C_READ:inst|address_reg[1..3]                   ; Stuck at GND due to stuck port data_in ;
+; I2C_READ:inst|address_reg[0]                      ; Stuck at VCC due to stuck port data_in ;
+; convtemp:inst4|dec[0]                             ; Merged with convtemp:inst4|dec[2]      ;
+; lcd_example_favs:inst1|char[5]                    ; Stuck at GND due to stuck port data_in ;
+; I2C_READ:inst|cnt.101                             ; Lost fanout                            ;
+; I2C_READ:inst|state~14                            ; Lost fanout                            ;
+; I2C_READ:inst|cnt~4                               ; Lost fanout                            ;
+; I2C_READ:inst|cnt~5                               ; Lost fanout                            ;
+; I2C_READ:inst|timer_cnt[0]                        ; Merged with I2C_READ:inst|scl_cnt[0]   ;
+; I2C_READ:inst|timer_cnt[1]                        ; Merged with I2C_READ:inst|scl_cnt[1]   ;
+; lcd_example_favs:inst1|lcd_bus[8]                 ; Stuck at GND due to stuck port data_in ;
+; lcd_example_favs:inst1|lcd_controller_v2_1:dut|rw ; Stuck at GND due to stuck port data_in ;
+; convtemp:inst4|cem[1..3]                          ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 48            ;                                        ;
++---------------------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++--------------------------------+---------------------------+---------------------------------------------------------------------+
+; Register name                  ; Reason for Removal        ; Registers Removed due to This Register                              ;
++--------------------------------+---------------------------+---------------------------------------------------------------------+
+; convtemp:inst4|convert[7]      ; Stuck at GND              ; convtemp:inst4|cem[3], convtemp:inst4|cem[2], convtemp:inst4|cem[1] ;
+;                                ; due to stuck port data_in ;                                                                     ;
+; lcd_example_favs:inst1|char[5] ; Stuck at GND              ; lcd_example_favs:inst1|lcd_bus[8],                                  ;
+;                                ; due to stuck port data_in ; lcd_example_favs:inst1|lcd_controller_v2_1:dut|rw                   ;
++--------------------------------+---------------------------+---------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 215   ;
+; Number of registers using Synchronous Clear  ; 56    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 26    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------+
+; Inverted Register Statistics                                  ;
++-----------------------------------------------------+---------+
+; Inverted Register                                   ; Fan out ;
++-----------------------------------------------------+---------+
+; lcd_example_favs:inst1|lcd_controller_v2_1:dut|busy ; 1       ;
+; Total number of inverted registers = 1              ;         ;
++-----------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |teste|lcd_example_favs:inst1|lcd_controller_v2_1:dut|rw           ;
+; 32:1               ; 2 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |teste|lcd_example_favs:inst1|lcd_bus[9]                           ;
+; 34:1               ; 2 bits    ; 44 LEs        ; 18 LEs               ; 26 LEs                 ; Yes        ; |teste|lcd_example_favs:inst1|lcd_bus[5]                           ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |teste|lcd_example_favs:inst1|lcd_controller_v2_1:dut|clk_count[6] ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; Yes        ; |teste|I2C_READ:inst|data_cnt[2]                                   ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |teste|lcd_example_favs:inst1|lcd_controller_v2_1:dut|lcd_data[4]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |teste|seteseg:inst3|Mux4                                          ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |teste|seteseg:inst3|Mux7                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: I2C_READ:inst ;
++----------------+-----------+-------------------------------+
+; Parameter Name ; Value     ; Type                          ;
++----------------+-----------+-------------------------------+
+; IDLE           ; 000000000 ; Unsigned Binary               ;
+; START          ; 000000010 ; Unsigned Binary               ;
+; ADDRESS        ; 000000100 ; Unsigned Binary               ;
+; ACK1           ; 000001000 ; Unsigned Binary               ;
+; READ1          ; 000010000 ; Unsigned Binary               ;
+; ACK2           ; 000100000 ; Unsigned Binary               ;
+; READ2          ; 001000000 ; Unsigned Binary               ;
+; NACK           ; 010000000 ; Unsigned Binary               ;
+; STOP           ; 100000000 ; Unsigned Binary               ;
++----------------+-----------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: convtemp:inst4|lpm_divide:Div1 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 5              ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_p0p ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: convtemp:inst4|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 5              ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_soo ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: convtemp:inst4|lpm_divide:Mod1 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 5              ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_soo ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: convtemp:inst4|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 8              ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_s0p ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Port Connectivity Checks: "lcd_example_favs:inst1|lcd_controller_v2_1:dut" ;
++---------+-------+----------+-----------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                       ;
++---------+-------+----------+-----------------------------------------------+
+; reset_n ; Input ; Info     ; Stuck at VCC                                  ;
++---------+-------+----------+-----------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 29                          ;
+; cycloneiii_ff         ; 215                         ;
+;     ENA               ; 26                          ;
+;     SCLR              ; 56                          ;
+;     plain             ; 133                         ;
+; cycloneiii_io_obuf    ; 1                           ;
+; cycloneiii_lcell_comb ; 621                         ;
+;     arith             ; 188                         ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 151                         ;
+;         3 data inputs ; 29                          ;
+;     normal            ; 433                         ;
+;         0 data inputs ; 12                          ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 132                         ;
+;         3 data inputs ; 45                          ;
+;         4 data inputs ; 234                         ;
+;                       ;                             ;
+; Max LUT depth         ; 12.40                       ;
+; Average LUT depth     ; 5.93                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Apr 25 16:15:31 2021
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Projeto3 -c Projeto3 --analysis_and_elaboration
+    Info: Processing started: Mon Apr 26 16:59:07 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Projeto3 -c Projeto3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file seteseg.vhd
@@ -190,14 +586,111 @@ Info (12021): Found 1 design units, including 1 entities, in source file lcdquar
     Info (12023): Found entity 1: lcdquarto
 Info (12021): Found 1 design units, including 1 entities, in source file convtemp.v
     Info (12023): Found entity 1: convtemp File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 1
-Error (10170): Verilog HDL syntax error at buzzer.v(24) near text: "if";  expecting "endmodule". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Estudo/Eletronica_Digital/P3/buzzer.v Line: 24
-Error (10170): Verilog HDL syntax error at buzzer.v(46) near text: "end"; "end" without "begin" . Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Estudo/Eletronica_Digital/P3/buzzer.v Line: 46
-Error (10112): Ignored design unit "buzzer" at buzzer.v(1) due to previous errors File: D:/Estudo/Eletronica_Digital/P3/buzzer.v Line: 1
-Info (12021): Found 0 design units, including 0 entities, in source file buzzer.v
-Error: Quartus Prime Analysis & Elaboration was unsuccessful. 3 errors, 1 warning
-    Error: Peak virtual memory: 4783 megabytes
-    Error: Processing ended: Sun Apr 25 16:15:40 2021
-    Error: Elapsed time: 00:00:09
-    Error: Total CPU time (on all processors): 00:00:18
+Info (12021): Found 1 design units, including 1 entities, in source file buzz.v
+    Info (12023): Found entity 1: buzz File: D:/Estudo/Eletronica_Digital/P3/buzz.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file buzzquente.v
+    Info (12023): Found entity 1: buzzquente File: D:/Estudo/Eletronica_Digital/P3/buzzquente.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file buzzfrio.v
+    Info (12023): Found entity 1: buzzfrio File: D:/Estudo/Eletronica_Digital/P3/buzzfrio.v Line: 1
+Info (12127): Elaborating entity "teste" for the top level hierarchy
+Info (12128): Elaborating entity "I2C_READ" for hierarchy "I2C_READ:inst"
+Warning (10230): Verilog HDL assignment warning at I2C_READ.v(94): truncated value with size 15 to match size of target (8) File: D:/Estudo/Eletronica_Digital/P3/I2C_READ.v Line: 94
+Warning (10272): Verilog HDL Case Statement warning at I2C_READ.v(138): case item expression covers a value already covered by a previous case item File: D:/Estudo/Eletronica_Digital/P3/I2C_READ.v Line: 138
+Info (12128): Elaborating entity "lcd_example_favs" for hierarchy "lcd_example_favs:inst1"
+Warning (10492): VHDL Process Statement warning at lcd_example_favs.vhd(64): signal "contador1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/lcd_example_favs.vhd Line: 64
+Warning (10492): VHDL Process Statement warning at lcd_example_favs.vhd(65): signal "contador2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/lcd_example_favs.vhd Line: 65
+Warning (10492): VHDL Process Statement warning at lcd_example_favs.vhd(66): signal "contador3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/lcd_example_favs.vhd Line: 66
+Warning (10492): VHDL Process Statement warning at lcd_example_favs.vhd(67): signal "contador4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/lcd_example_favs.vhd Line: 67
+Info (12128): Elaborating entity "lcd_controller_v2_1" for hierarchy "lcd_example_favs:inst1|lcd_controller_v2_1:dut" File: D:/Estudo/Eletronica_Digital/P3/lcd_example_favs.vhd Line: 56
+Info (12128): Elaborating entity "convtemp" for hierarchy "convtemp:inst4"
+Warning (10230): Verilog HDL assignment warning at convtemp.v(31): truncated value with size 32 to match size of target (4) File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 31
+Warning (10230): Verilog HDL assignment warning at convtemp.v(32): truncated value with size 32 to match size of target (4) File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 32
+Warning (10230): Verilog HDL assignment warning at convtemp.v(33): truncated value with size 32 to match size of target (4) File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 33
+Info (12128): Elaborating entity "buzzquente" for hierarchy "buzzquente:inst16"
+Info (12128): Elaborating entity "buzzfrio" for hierarchy "buzzfrio:inst15"
+Info (12128): Elaborating entity "seteseg" for hierarchy "seteseg:inst3"
+Warning (10492): VHDL Process Statement warning at seteseg.vhd(32): signal "digito" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/seteseg.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at seteseg.vhd(33): signal "tempdec" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/seteseg.vhd Line: 33
+Warning (10492): VHDL Process Statement warning at seteseg.vhd(34): signal "tempuni" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/seteseg.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at seteseg.vhd(35): signal "tempdez" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/seteseg.vhd Line: 35
+Warning (10492): VHDL Process Statement warning at seteseg.vhd(36): signal "tempcem" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/seteseg.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at seteseg.vhd(38): signal "digito" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/seteseg.vhd Line: 38
+Warning (10492): VHDL Process Statement warning at seteseg.vhd(39): signal "aux" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/seteseg.vhd Line: 39
+Warning (10492): VHDL Process Statement warning at seteseg.vhd(53): signal "aux" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Estudo/Eletronica_Digital/P3/seteseg.vhd Line: 53
+Info (278001): Inferred 4 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "convtemp:inst4|Div1" File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 32
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "convtemp:inst4|Mod0" File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 32
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "convtemp:inst4|Mod1" File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 33
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "convtemp:inst4|Div0" File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 31
+Info (12130): Elaborated megafunction instantiation "convtemp:inst4|lpm_divide:Div1" File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 32
+Info (12133): Instantiated megafunction "convtemp:inst4|lpm_divide:Div1" with the following parameter: File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 32
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_p0p.tdf
+    Info (12023): Found entity 1: lpm_divide_p0p File: D:/Estudo/Eletronica_Digital/P3/db/lpm_divide_p0p.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
+    Info (12023): Found entity 1: abs_divider_kbg File: D:/Estudo/Eletronica_Digital/P3/db/abs_divider_kbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_77f.tdf
+    Info (12023): Found entity 1: alt_u_div_77f File: D:/Estudo/Eletronica_Digital/P3/db/alt_u_div_77f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: D:/Estudo/Eletronica_Digital/P3/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: D:/Estudo/Eletronica_Digital/P3/db/add_sub_8pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
+    Info (12023): Found entity 1: lpm_abs_2v9 File: D:/Estudo/Eletronica_Digital/P3/db/lpm_abs_2v9.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
+    Info (12023): Found entity 1: lpm_abs_i0a File: D:/Estudo/Eletronica_Digital/P3/db/lpm_abs_i0a.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "convtemp:inst4|lpm_divide:Mod0" File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 32
+Info (12133): Instantiated megafunction "convtemp:inst4|lpm_divide:Mod0" with the following parameter: File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 32
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_soo.tdf
+    Info (12023): Found entity 1: lpm_divide_soo File: D:/Estudo/Eletronica_Digital/P3/db/lpm_divide_soo.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "convtemp:inst4|lpm_divide:Mod1" File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 33
+Info (12133): Instantiated megafunction "convtemp:inst4|lpm_divide:Mod1" with the following parameter: File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 33
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12130): Elaborated megafunction instantiation "convtemp:inst4|lpm_divide:Div0" File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 31
+Info (12133): Instantiated megafunction "convtemp:inst4|lpm_divide:Div0" with the following parameter: File: D:/Estudo/Eletronica_Digital/P3/convtemp.v Line: 31
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_s0p.tdf
+    Info (12023): Found entity 1: lpm_divide_s0p File: D:/Estudo/Eletronica_Digital/P3/db/lpm_divide_s0p.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_nbg.tdf
+    Info (12023): Found entity 1: abs_divider_nbg File: D:/Estudo/Eletronica_Digital/P3/db/abs_divider_nbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_c7f.tdf
+    Info (12023): Found entity 1: alt_u_div_c7f File: D:/Estudo/Eletronica_Digital/P3/db/alt_u_div_c7f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_5v9.tdf
+    Info (12023): Found entity 1: lpm_abs_5v9 File: D:/Estudo/Eletronica_Digital/P3/db/lpm_abs_5v9.tdf Line: 25
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "rw" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "convtemp:inst4|lpm_divide:Mod0|lpm_divide_soo:auto_generated|abs_divider_kbg:divider|alt_u_div_77f:divider|add_sub_31_result_int[0]~0" File: D:/Estudo/Eletronica_Digital/P3/db/alt_u_div_77f.tdf Line: 152
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 660 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 27 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 631 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 4835 megabytes
+    Info: Processing ended: Mon Apr 26 16:59:19 2021
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:22
 
 

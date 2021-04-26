@@ -3,11 +3,14 @@ scl <= I2C_READ:inst.scl
 clock => I2C_READ:inst.clk
 clock => lcd_example_favs:inst1.clk
 clock => convtemp:inst4.clk
+clock => buzzquente:inst16.clk
+clock => buzzfrio:inst15.clk
 clock => seteseg:inst3.clock
 sda <> I2C_READ:inst.sda
 rw <= lcd_example_favs:inst1.rw
 rs <= lcd_example_favs:inst1.rs
 e <= lcd_example_favs:inst1.e
+buzzer <= inst19.DB_MAX_OUTPUT_PORT_TYPE
 7seg[7] <= seteseg:inst3.saida[7]
 7seg[6] <= seteseg:inst3.saida[6]
 7seg[5] <= seteseg:inst3.saida[5]
@@ -336,11 +339,8 @@ data[3] => ~NO_FANOUT~
 data[4] => ~NO_FANOUT~
 data[5] => ~NO_FANOUT~
 data[6] => ~NO_FANOUT~
-data[7] => always0.IN1
-data[7] => always0.IN1
 data[7] => dec[2].DATAIN
 data[7] => dec[0].DATAIN
-data[7] => always0.IN1
 data[8] => convert[0].DATAIN
 data[9] => convert[1].DATAIN
 data[10] => convert[2].DATAIN
@@ -417,6 +417,74 @@ tempcem[2] <= cem[2].DB_MAX_OUTPUT_PORT_TYPE
 tempcem[3] <= cem[3].DB_MAX_OUTPUT_PORT_TYPE
 sel[0] <= sel[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 sel[1] <= sel[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|teste|buzzquente:inst16
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+clk => count[11].CLK
+clk => count[12].CLK
+clk => count[13].CLK
+clk => count[14].CLK
+clk => count[15].CLK
+clk => count[16].CLK
+clk => count[17].CLK
+clk => count[18].CLK
+clk => count[19].CLK
+clk => count[20].CLK
+clk => count[21].CLK
+clk => count[22].CLK
+clk => count[23].CLK
+clk => count[24].CLK
+clk => count[25].CLK
+clk => count[26].CLK
+clk => count[27].CLK
+sel[0] => Equal0.IN1
+sel[1] => Equal0.IN0
+beep <= beep_r.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|teste|buzzfrio:inst15
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+clk => count[11].CLK
+clk => count[12].CLK
+clk => count[13].CLK
+clk => count[14].CLK
+clk => count[15].CLK
+clk => count[16].CLK
+clk => count[17].CLK
+clk => count[18].CLK
+clk => count[19].CLK
+clk => count[20].CLK
+clk => count[21].CLK
+clk => count[22].CLK
+clk => count[23].CLK
+clk => count[24].CLK
+clk => count[25].CLK
+clk => count[26].CLK
+clk => count[27].CLK
+sel[0] => Equal0.IN1
+sel[1] => Equal0.IN0
+beep <= beep_r.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |teste|seteseg:inst3

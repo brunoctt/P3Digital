@@ -18,16 +18,21 @@ always @ (posedge clk)
 
 begin
 convert <= data[14:8];
-if ((convert >= 32'd31 & data[7] == 1'b1) | convert >= 32'd32)
+if ((convert >= 32'd31 & data[7] == 1'b1) | convert >= 32'd32) //para temp maior que 31.5, sel representa quente
 	sel <= 2'b11;
 else if ((convert <= 32'd31 & data[7] == 1'b0) & (convert >= 32'd27 & data[7] == 1'b1))
+	sel <= 2'b10;					// para temp entre 27.5 e 31, sel representa normal
+//if (convert >= 32'd32)
+//	sel <= 2'b11;
+//else if (convert == 32'd31)
+//	sel <= 2'b01;
+else		// para temps menores que 27.5, sel representa frio
 	sel <= 2'b10;
-else
-	sel <= 2'b01;
-cem <= convert/100;
+// conversoes da temperatura para cada digito
+cem <= convert/100;	
 dez <= (convert/10) % 10;
 uni <= convert % 10;
-if(data[7]) 
+if(data[7]) // data[7] representa o decimal da temperatura
 	dec <= 4'd5;
 else 
 	dec <= 4'd0;
