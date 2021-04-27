@@ -2,7 +2,7 @@
   - LCD e 7seg DONE
   - Temperatura ambiente no 7 seg DONE
   - Falor se tá quarto frio normal ou quente no LCD DONE
-  - Caso saia do NORMAL para o FRIO, ativar buzzer segundo instruções
+  - Caso saia do NORMAL para o FRIO ou QUENTE, ativar buzzer segundo instruções DONE
 
 #Dúvidas:
   
