@@ -1,0 +1,140 @@
+módulo I2C_READ (
+       clk,
+rst_n,
+scl, sda, data
+              );
+ 
+ input clk; // Bus clock 50MHz
+input rst_n; // Reset assíncrono, ativo baixo
+  
+output scl; // relógio SCL
+inout sda; // barramento de dados SDA
+output [15: 0] data; // dados de temperatura
+  
+reg [15: 0] data_r; // registro de dados de temperatura
+reg scl; // registro de barramento SCL
+reg sda_r; // registro de barramento SDA
+reg sda_link; // Sinalizador de direção de dados do barramento SDA
+reg [7: 0] scl_cnt; // contador de geração de relógio SCL
+reg [2: 0] cnt; // Usado para marcar o contador de relógio SCL
+reg [25: 0] timer_cnt; // Timer, lê os dados de temperatura a cada 2s
+reg [3: 0] data_cnt; // Data serial para registro de conversão paralela
+reg [7: 0] address_reg; // registro de endereço do dispositivo
+reg [8: 0] estado; // Registro de estado
+/////////////////////////////////////////////////////// / ///////////////////////////////////
+// Processo 1, 2, 3: Gerar relógio de barramento SCL
+always @ (posedge clk ou negedge rst_n)
+    começar
+        if (! rst_n)
+            scl_cnt <= 8'd0;
+        else if (scl_cnt == 8'd199)
+            scl_cnt <= 8'd0;
+        senão
+            scl_cnt <= scl_cnt + 1'b1;
+    fim
+always @ (posedge clk ou negedge rst_n)
+    começar
+        if (! rst_n)
+            cnt <= 3'd5;
+        senão
+            case (scl_cnt)
+                8'd49: cnt <= 3'd1; // Nível médio alto
+                8'd99: cnt <= 3'd2; // borda descendente
+                8'd149: cnt <= 3'd3; // nível médio baixo
+                8'd199: cnt <= 3'd0; // borda ascendente
+               padrão: cnt <= 3'd5;
+            endcase
+    fim
+`define SCL_HIG (cnt == 3'd1)
+`define SCL_NEG (cnt == 3'd2)
+`define SCL_LOW (cnt == 3'd3)
+`define SCL_POS (cnt == 3'd0)
+always @ (posedge clk ou negedge rst_n)
+    começar
+        if (! rst_n)
+            scl <= 1'b0;
+        else if (`SCL_POS)
+            scl <= 1'b1;
+        else if (`SCL_NEG)
+            scl <= 1'b0;
+    fim
+/////////////////////////////////////////////////////// / ///////////////////////////////////
+// Processo 4: Timer, ler dados de temperatura a cada 1s
+always @ (posedge clk ou negedge rst_n)
+    começar
+        if (! rst_n)
+            timer_cnt <= 26'd0;
+        else if (timer_cnt == 26'd49999999)
+            timer_cnt <= 26'd0;
+        senão
+            timer_cnt <= timer_cnt + 1'b1;
+    fim
+/////////////////////////////////////////////////////// / ///////////////////////////////////
+// Definição da máquina de estado
+parâmetro IDLE = 9'b0_0000_0000,
+             START = 9'b0_0000_0010,
+             ENDEREÇO ​​= 9'b0_0000_0100,
+             ACK1 = 9'b0_0000_1000,
+             READ1 = 9'b0_0001_0000,
+             ACK2 = 9'b0_0010_0000,
+             READ2 = 9'b0_0100_0000,
+             NACK = 9'b0_1000_0000,
+             STOP = 9'b1_0000_0000;
+`definir DEVICE_ADDRESS 8'b1001_0001 // endereço do dispositivo, operação de leitura
+/////////////////////////////////////////////////////// / ///////////////////////////////////
+// Processo 5: descrição da máquina de estado
+always @ (posedge clk ou negedge rst_n)
+    começar
+        if (! rst_n)
+            começar
+                data_r <= 16'd0;
+                sda_r <= 1'b1;
+                sda_link <= 1'b1;
+                estado <= IDLE;
+                address_reg <= 15'd0;
+                data_cnt <= 4'd0;
+            fim
+        senão
+            caso (estado)
+                OCIOSO:
+                    começar
+                        sda_r <= 1'b1;
+                        sda_link <= 1'b1;
+                        if (timer_cnt == 26'd49999999)
+                            estado <= INICIAR;
+                        senão
+                            estado <= IDLE;
+                    fim
+                START: // Gerar sinal de início
+                    começar
+                        if (`SCL_HIG)
+                            começar
+                                sda_r <= 1'b0;
+                                sda_link <= 1'b1;
+                                address_reg <= `DEVICE_ADDRESS;
+                                estado <= ENDEREÇO;
+                                data_cnt <= 4'd0;
+                            fim
+                        senão
+                            estado <= INICIAR;
+                    fim
+                ENDEREÇO: // O host endereça o dispositivo
+                    começar
+                        if (`SCL_LOW)
+                            começar
+                                if (data_cnt == 4'd8) // O endereçamento é concluído, o SDA muda de direção e o dispositivo está pronto para emitir um sinal de resposta
+                                    começar
+                                        estado <= ACK1;
+                                        data_cnt <= 4'd0;
+                                        sda_r <= 1'b1;
+                                        sda_link <= 1'b0;
+                                    fim
+                                else // Durante o processo de endereçamento, SDA é usado como entrada para o dispositivo
+                                    começar
+                                        estado <= ENDEREÇO;
+                                        data_cnt <= data_cnt + 1'b1;
+                                        case (data_cnt)
+                                            4'd0: sda_r <= address_reg [7];
+                                            4'd0: sda_r <= address_reg [7];
+                                            4'd1: sda_r <= address_reg [6];
+                                            4'd2: sda_
